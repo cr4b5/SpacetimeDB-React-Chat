@@ -1,9 +1,7 @@
 {
   "files": [],
   "references": [
-    { "path": "crates/bindings-typescript" },
-    { "path": "crates/bindings-typescript/test-app" },
-    { "path": "crates/bindings-typescript/examples/quickstart-chat" },
-    { "path": "docs" },
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
   ]
 }

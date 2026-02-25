@@ -1,33 +1,41 @@
 {
+  "name": "kilochat",
   "private": true,
-  "packageManager": "pnpm@9.7.0",
-  "engines": {
-    "node": ">=18.0.0",
-    "pnpm": ">=9.0.0"
-  },
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "run-all": "pnpm -r -F ./crates/bindings-typescript -F ./crates/bindings-typescript/examples/quickstart-chat -F ./crates/bindings-typescript/test-app -F ./docs -F \"./templates/**\" run",
-    "format": "pnpm run-all format && prettier eslint.config.js --write",
-    "lint": "pnpm run-all lint && prettier eslint.config.js --check",
-    "build": "pnpm run-all build",
-    "test": "pnpm run-all test",
-    "generate": "pnpm run-all generate",
-    "clean": "pnpm -r exec rimraf dist .tsbuildinfo coverage"
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "format": "prettier . --write",
+    "lint": "eslint . && prettier . --check",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "spacetime:generate": "spacetime generate --lang typescript --out-dir src/module_bindings --module-path spacetimedb",
+    "spacetime:publish:local": "spacetime publish --module-path spacetimedb --server local",
+    "spacetime:publish": "spacetime publish --module-path spacetimedb --server maincloud"
+  },
+  "dependencies": {
+    "spacetimedb": "^1.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
-    "@types/node": "^22.10.2",
-    "@typescript-eslint/eslint-plugin": "^8.18.2",
-    "@typescript-eslint/parser": "^8.18.2",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^5.0.2",
     "eslint": "^9.17.0",
-    "eslint-plugin-jsdoc": "^61.5.0",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.16",
     "globals": "^15.14.0",
+    "jsdom": "^26.0.0",
     "prettier": "^3.3.3",
-    "rimraf": "^6.0.1",
     "typescript": "~5.6.2",
-    "vitest": "^3.2.4"
+    "typescript-eslint": "^8.18.2",
+    "vite": "^7.1.5",
+    "vitest": "3.2.4"
   }
 }

@@ -1,0 +1,16 @@
+{
+  "name": "kilochat-server",
+  "license": "Apache-2.0",
+  "type": "module",
+  "scripts": {
+    "build": "spacetime build",
+    "generate-ts": "spacetime generate --lang typescript --out-dir ts-codegen",
+    "publish": "spacetime publish"
+  },
+  "dependencies": {
+    "spacetimedb": "^1.2.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}
